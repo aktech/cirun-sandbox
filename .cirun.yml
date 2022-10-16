@@ -2,6 +2,7 @@ runners:
     - name: aws-runner
       cloud: aws
       instance_type: t2.large
+      region: us-east-2
       machine_image: ami-0149b2da6ceec4bb0
       labels:
         - cirunner
