@@ -10,7 +10,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: cirunner
+    runs-on: oracle
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -26,3 +26,31 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      # Runs a set of commands using the runners shell
+      - name: Get Hostname
+        shell: bash
+        run: |
+          hostname
+      - name: Run nvidia-smi if present
+        shell: bash
+        run: |
+          nvidia-smi || true
+      - name: Get system Information
+        shell: bash
+        run: |
+          uname -a
+      - name: Get Architecture
+        shell: bash
+        run: |
+          dpkg --print-architecture
+      - name: Get system Disk space
+        shell: bash
+        run: |
+          df -h
+      - name: Get OS version
+        shell: bash
+        run: |
+          cat /etc/*release
+      - name: Run "lscpu"
+        shell: bash
+        run: lscpu
